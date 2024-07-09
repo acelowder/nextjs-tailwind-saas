@@ -16,8 +16,8 @@ import { IImage } from "@/lib/database/models/image.model";
 import { formUrlQuery } from "@/lib/utils";
 
 import { Button } from "../ui/button";
-import { Search } from "./Search";
 
+import { Search } from "./Search";
 
 export const Collection = ({
   hasSearch = false,
@@ -55,8 +55,8 @@ export const Collection = ({
 
       {images.length > 0 ? (
         <ul className="collection-list">
-          {images.map((image) => (
-            <Card image={image} key={image._id}/>
+          {images.map((image, index) => (
+            <Card image={image} key={index} />
           ))}
         </ul>
       ) : (
