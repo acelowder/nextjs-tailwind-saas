@@ -1,26 +1,14 @@
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 
-// .menu-item {
-//   cursor: pointer;
-//   color: #454545;
-//   transition: color 0.3s ease;
-// }
-// .menu-item:hover {
-//   color: #a7a7a7;
-// }
-
-// .pill {
-//   padding: 10px 32px;
-//   border-radius: 24px;
-//   background-color: #eeeeee;
-//   color: #454545;
-// }
-// .pill:hover {
-//   background-color: #c2c2c2;
-//   color: #454545;
-// }
-
 const Navbar = () => {
+  const userButtonAppearance = {
+    elements: {
+      userButtonAvatarBox: "w-9 h-9", // Tailwind classes for width and height
+      userButtonAvatarImage: "w-9 h-9", // Tailwind classes for the image
+    },
+  };
+
   return (
     <nav className="bg-white shadow-sm fixed w-full flex items-center justify-between h-[72px] px-8">
       <a href="/" className="flex items-center">
@@ -36,7 +24,8 @@ const Navbar = () => {
           <span className="text-gray-800 opacity-50">IT</span>
         </span>
       </a>
-      <ul className="flex items-center gap-4">
+
+      <ul className="flex items-center flex-grow gap-4">
         <li>
           <a
             href="/transformations/add/fill"
@@ -54,24 +43,31 @@ const Navbar = () => {
           </a>
         </li>
       </ul>
-      <ul className="flex items-center ml-auto gap-4">
-        <li>
-          <a
-            href="/sign-in"
-            className="py-6 px-3 text-gray-800 hover:text-gray-400 transition duration-200 ease-in-out"
-          >
-            Log in
-          </a>
-        </li>
-        <li>
-          <a
-            href="/sign-up"
-            className="py-2 px-4 text-gray-800 rounded-3xl bg-gray-100 hover:bg-gray-200"
-          >
-            Sign up
-          </a>
-        </li>
-      </ul>
+
+      <SignedIn>
+        <UserButton appearance={userButtonAppearance} />
+      </SignedIn>
+
+      <SignedOut>
+        <ul className="flex items-center gap-4">
+          <li>
+            <a
+              href="/sign-in"
+              className="py-6 px-3 text-gray-800 hover:text-gray-400 transition duration-200 ease-in-out"
+            >
+              Log in
+            </a>
+          </li>
+          <li>
+            <a
+              href="/sign-up"
+              className="py-2 px-4 text-gray-800 rounded-3xl bg-gray-100 hover:bg-gray-200"
+            >
+              Sign up
+            </a>
+          </li>
+        </ul>
+      </SignedOut>
     </nav>
   );
 };
