@@ -1,21 +1,12 @@
-import MobileNav from "@/components/shared/MobileNav";
-import Navbar from "@/components/shared/Navbar";
-import Sidebar from "@/components/shared/Sidebar";
-import { Toaster } from "@/components/ui/toaster";
+import Hero from "@/components/sections/Hero";
+import Navbar from "@/components/sections/Navbar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <Navbar />
-      <main className="root">
-        <Sidebar />
-        <MobileNav />
-
-        <div className="root-container">
-          <div className="wrapper">{children}</div>
-        </div>
-
-        <Toaster />
+      <main className="pt-[72px]">
+        <Hero />
       </main>
     </>
   );

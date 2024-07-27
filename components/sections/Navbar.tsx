@@ -4,14 +4,14 @@ import Image from "next/image";
 const Navbar = () => {
   const userButtonAppearance = {
     elements: {
-      userButtonAvatarBox: "w-9 h-9", // Tailwind classes for width and height
-      userButtonAvatarImage: "w-9 h-9", // Tailwind classes for the image
+      userButtonAvatarBox: "w-9 h-9",
+      userButtonAvatarImage: "w-9 h-9",
     },
   };
 
   return (
     <nav className="bg-white shadow-sm fixed w-full flex items-center justify-between h-[72px] px-8">
-      <a href="/" className="flex items-center">
+      <a href="/" className="flex items-center  mr-8">
         <Image
           src="/assets/images/logo.svg"
           alt="logo"
@@ -19,7 +19,7 @@ const Navbar = () => {
           height={40}
           className="mr-2"
         />
-        <span className="text-3xl py-6 mr-8 font-bold tracking-wide">
+        <span className="text-3xl py-3 font-bold tracking-wide">
           EXPAND
           <span className="text-gray-800 opacity-50">IT</span>
         </span>
