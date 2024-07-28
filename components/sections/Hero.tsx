@@ -1,3 +1,8 @@
+"use client";
+
+import Link from "next/link";
+import { useDropzone } from "react-dropzone";
+
 const images = [
   "https://static.remove.bg/uploader-examples/person/7_thumbnail.jpg",
   "https://static.remove.bg/uploader-examples/animal/6_thumbnail.jpg",
@@ -6,6 +11,17 @@ const images = [
 ];
 
 const Hero = () => {
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: {
+      "image/jpeg": [],
+      "image/png": [],
+    },
+    onDrop: (acceptedFiles) => {
+      // Handle the uploaded file here
+      console.log(acceptedFiles);
+    },
+  });
+
   return (
     <section
       className="flex flex-col lg:flex-row items-center justify-center h-[100%-72px] gap-12 lg:gap-20"
@@ -19,21 +35,25 @@ const Hero = () => {
 
       <div className="flex flex-col gap-4">
         <div
+          {...getRootProps()}
           id="uploadContainer"
           className="h-80 flex flex-col justify-center rounded-3xl bg-white shadow-2xl gap-6"
         >
-          <button className="!mx-28 rounded-full font-bold text-2xl px-8 py-2.5 mt-12 text-white bg-blue-500 hover:bg-blue-600 transition 0.2s ease-in-out active:scale-[0.98]">
-            Upload Image
-          </button>
+          <Link href="/resize" passHref>
+            <button className="!mx-28 rounded-full font-bold text-2xl px-8 py-2.5 mt-12 text-white bg-blue-500 hover:bg-blue-600 transition 0.2s ease-in-out active:scale-[0.98]">
+              Upload Image
+            </button>
+          </Link>
           <div className="text-center">
             <p className="text-xl">or drop a file</p>
-            <span>
+            <span className="text-xs">
               paste image or{" "}
               <a href="#" className="underline">
                 URL
               </a>
             </span>
           </div>
+          <input {...getInputProps()} />
         </div>
 
         <div id="testImages" className="flex items-center justify-between">
