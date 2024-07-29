@@ -21,7 +21,7 @@ const UploadContainer = () => {
       {...getRootProps()}
       className="h-80 flex flex-col justify-center rounded-3xl bg-white shadow-2xl gap-6 pt-12 px-28 pointer-events-none"
     >
-      <Link href="/resize" passHref>
+      <Link href="/expand" passHref>
         <button className="rounded-full font-bold text-2xl px-8 py-2.5 text-white bg-blue-500 hover:bg-blue-600 transition 0.2s ease-in-out active:scale-[0.98] pointer-events-auto">
           Upload Image
         </button>

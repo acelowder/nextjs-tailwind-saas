@@ -28,7 +28,7 @@ const Navbar = () => {
       <ul className="flex items-center flex-grow gap-4">
         <li>
           <a
-            href="/transformations/add/fill"
+            href="/expand"
             className="py-6 px-3 text-gray-800 hover:text-gray-400 transition duration-200 ease-in-out"
           >
             Expand
@@ -36,7 +36,7 @@ const Navbar = () => {
         </li>
         <li>
           <a
-            href="/pricing"
+            href="/transformations/add/fill"
             className="py-6 px-3 text-gray-800 hover:text-gray-400 transition duration-200 ease-in-out"
           >
             Pricing
